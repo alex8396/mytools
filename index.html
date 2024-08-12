@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="StyleSheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200&display=swap" rel="stylesheet">
+    <title>Kgyury</title>
+    <script src="https://kit.fontawesome.com/b1dd6241c5.js" crossorigin="anonymous"></script>
+    <script src="main.js" defer></script> <!-- HTML-JS 파일 연결 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Responsive Navigation</title>
+<link rel="stylesheet" href="main.css">
+<link rel="stylesheet" href="gsap.css">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js" defer></script>
+    <script src="main.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Flip.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+
+    <link rel="stylesheet" href="comm.css">
+    <style>
+        .satellites{
+            z-index: 1;
+            position: absolute;
+            top: 0;
+            /* width: 100% */
+            left: 0;
+            right: 0;
+        }
+        .navbar {
+            z-index: 10;
+            position: fixed;
+            top: 0;
+            /* width: 100% */
+            left: 0;
+            right: 0;
+        }
+
+        body {
+            height: 2000px;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            overflow-x: hidden;
+            font-family: 'Source Sans Pro', sans-serif;
+        }
+
+        .box {
+            width: 50vw;
+            height: 100vh;
+            background-color: #3498db;
+            position: fixed;
+            top: 0;
+            transition: transform 0.2s;
+        }
+
+        #box1 {
+            left: 0;
+        }
+
+        #box2 {
+            right: 0;
+        }
+
+        #text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50vw;
+            height: auto;
+            z-index: 1;
+            margin-top: 100px;
+        }
+
+        #text img {
+            width: 100%;
+            height: auto;
+        }
+
+        .sentence {
+            z-index: 1;
+            min-height: 100vh;
+            color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .sentence__text {
+            font-size: 0;
+        }
+
+        .sentence__text>* {
+            font-size: 1rem;
+        }
+
+        .sentence__text>span {
+            display: inline-block;
+            overflow: hidden;
+            padding: 0 3rem 0;
+            border: 5px solid red;
+        }
+
+        .sentence__text>span>span {
+            font-size: 5rem;
+            display: block;
+        }
+
+        .gsap {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        body {
+            height: 2000px;
+            /* 스크롤을 만들기 위한 높이 */
+            margin: 0;
+            padding: 0;
+            position: relative;
+            overflow-x: hidden;
+            font-family: 'Source Sans Pro', sans-serif;
+        }
+
+        .box {
+            width: 50vw;
+            height: 100%;
+            background-color: #3498db;
+            position: fixed;
+            top: 0;
+            transition: transform 0.2s;
+            z-index: 0;
+        }
+
+        #box1 {
+            left: 0;
+        }
+
+        #box2 {
+            right: 0;
+        }
+
+        #text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50vw;
+            height: auto;
+            z-index: 0;
+            margin-top: 100px;
+
+        }
+
+        #text img {
+            width: 100%;
+            height: auto;
+        }
+
+        .sentence {
+            min-height: 100vh;
+            /* background-color: black; */
+            color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .sentence__text {
+            font-size: 0;
+        }
+
+        .sentence__text>* {
+            font-size: 1rem;
+        }
+
+        .sentence__text>span {
+            display: inline-block;
+            overflow: hidden;
+            /* 영역을 벗어난 요소는 숨김 */
+            padding: 0 3rem 0;
+            border: 5px solid red;
+        }
+
+        .sentence__text>span>span {
+            font-size: 5rem;
+            display: block;
+        }
+        
+    </style>
+</head>
+
+<body>
+    
+    <nav class="navbar">
+        <div class="navbar__logo">
+            <i class="fas fa-dog"></i>
+            <a href="index.html">Limjaechan</a>
+        </div>
+        <ul class="navbar__menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="https://github.com/alex8396">Github</a></li>
+            <li><a href="">portfolio</a></li>
+        </ul>
+        <ul class="navbar__icons">
+            <a href="login.html"><li><i class="far fa-building"></i></li></a>
+            <a href="signup.html"><li><i class="fas fa-home"></i></li></a>
+        </ul>
+        <a href="#" class="navbar__toggleBtn"><!-- 햄버거 버튼 -->
+            <i class="fas fa-hamburger"></i>
+        </a>
+    </nav>
+    
+    <div id="content">
+        <!-- 로그인 또는 다른 콘텐츠 -->
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // 로그인 상태를 확인하는 로직 (예시로 localStorage를 사용)
+            const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+            const loginLink = document.getElementById('login-link');
+
+            
+        });
+    </script>
+    <div class="box" id="box1">
+
+    </div>
+
+
+
+    <div class="box" id="box2">
+
+    </div>
+    <center>
+        <br>
+        
+        <br>
+        <br><br><br>
+        <div class="sentence">
+            <div class="sentence__text">
+                <span><span>포</span></span>
+                <span><span>트</span></span>
+                <span><span>폴</span></span>
+                <span><span>리</span></span>
+                <span><span>오</span></span>
+                
+            </div>
+            
+            <script>
+                // use a script tag or an external JS file
+                document.addEventListener("DOMContentLoaded", (event) => {
+                    gsap.registerPlugin(Flip)
+                    // gsap code here!
+                });
+        
+            </script>
+            
+        </div>
+    
+
+            <div>
+                
+                <iframe style="width: 100%; height: 100%; z-index: -2;" src="cude.html" frameborder="0"></iframe>
+            </div>
+        
+    </center>
+    
+
+    <script>
+        window.addEventListener('scroll', function () {
+            const scrollY = window.scrollY; // 현재 스크롤 위치
+            const box1 = document.getElementById('box1');
+            const box2 = document.getElementById('box2');
+
+            // 스크롤 위치에 따라 박스의 위치 조정
+            box1.style.transform = `translateX(${-scrollY * 1.5}px)`; // box1을 왼쪽으로 이동
+            box2.style.transform = `translateX(${scrollY * 1.5}px)`; // box2를 오른쪽으로 이동
+        });
+
+        // GSAP 애니메이션을 추가합니다.
+      
+
+        var tl = gsap.timeline({
+            repeat: -1, // 무한 반복
+            repeatDelay: 1 // 반복 딜레이
+        });
+
+        tl.from(".sentence__text > span > span", {
+            opacity: 0,
+            y: 100,
+            duration: 1,
+            stagger: 0.5
+        });
+    </script>
+</body>
+
+</html>

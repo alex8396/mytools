@@ -1,0 +1,58 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: white;
+  height: 100vh;
+  overflow: hidden;
+  perspective: 1000px;
+}
+
+.cube {
+  transform: rotateX(-25deg) rotateY(25deg);
+  cursor: move;
+  transform-style: preserve-3d;
+  position: absolute;
+  width: 50vmin;
+  height: 50vmin;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+.cube .face {
+  box-sizing: border-box;
+  border: 0px solid black;
+  width: 50vmin;
+  height: 50vmin;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.cube .face.front {
+  background-color: white;
+  transform: translateX(0px) translateY(0px) translateZ(25vmin) rotateX(0deg) rotateY(0deg);
+}
+.cube .face.back {
+  background-color: white;
+  transform: translateX(0px) translateY(0px) translateZ(-25vmin) rotateX(0deg) rotateY(0deg);
+}
+.cube .face.top {
+  background-color: white;
+  transform: translateX(0px) translateY(-25vmin) translateZ(0px) rotateX(90deg) rotateY(0deg);
+}
+.cube .face.bottom {
+  background-color: white;
+  transform: translateX(0px) translateY(25vmin) translateZ(0px) rotateX(90deg) rotateY(0deg);
+}
+.cube .face.left {
+  background-color: white;
+  transform: translateX(-25vmin) translateY(0px) translateZ(0px) rotateX(0deg) rotateY(90deg);
+}
+.cube .face.right {
+  background-color: white;
+  transform: translateX(25vmin) translateY(0px) translateZ(0px) rotateX(0deg) rotateY(90deg);
+}/*# sourceMappingURL=cude.css.map */

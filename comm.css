@@ -1,0 +1,12 @@
+.fa-building:before {
+    content: "\f007";
+}
+.fa-home:before {
+    content: "\f2f6";
+}
+.fa-hamburger:before {
+    content: "\f141";
+}
+.fa-dog:before {
+    content: "\f433";
+}

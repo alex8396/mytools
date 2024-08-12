@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="cude.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #0000;
+            margin: 0;
+        }
+
+        .cube {
+            width: 100px;
+            height: 100px;
+            transform-style: preserve-3d;
+            transform: rotateX(-25deg) rotateY(25deg);
+        }
+
+        .face {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border: 1px solid #ccc;
+        }
+
+        .front {
+            transform: translateZ(50px);
+        }
+
+        .back {
+            transform: rotateY(180deg) translateZ(50px);
+        }
+
+        .top {
+            transform: rotateX(90deg) translateZ(50px);
+        }
+
+        .bottom {
+            transform: rotateX(-90deg) translateZ(50px);
+        }
+
+        .left {
+            transform: rotateY(-90deg) translateZ(50px);
+        }
+
+        .right {
+            transform: rotateY(90deg) translateZ(50px);
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const cubeEl = document.querySelector(".cube");
+
+            let clickX = 0;
+            let clickY = 0;
+
+            let moveX = -25;
+            let moveY = 25;
+
+            let lastX = -25;
+            let lastY = 25;
+
+            let isClick = false;
+            let isTouch = false;
+
+            const handleMouseMove = (e) => {
+                if (isClick) {
+                    const nowX = e.screenX;
+                    const nowY = e.screenY;
+
+                    moveX = lastX + clickY - nowY;
+                    moveY = lastY - clickX + nowX;
+
+                    console.log(`X 회전각 : ${moveX} Y 회전각 : ${moveY}`);
+
+                    gsap.to(cubeEl, { duration: 0, rotationX: moveX, rotationY: moveY });
+                }
+            };
+
+            const handleMouseUp = () => {
+                if (isClick) {
+                    lastX = moveX;
+                    lastY = moveY;
+                    isClick = false;
+                }
+                window.removeEventListener("mousemove", handleMouseMove);
+                window.removeEventListener("mouseup", handleMouseUp);
+            };
+
+            cubeEl.addEventListener("mousedown", (e) => {
+                isClick = true;
+                clickX = e.screenX;
+                clickY = e.screenY;
+                window.addEventListener("mousemove", handleMouseMove);
+                window.addEventListener("mouseup", handleMouseUp, { once: true });
+            });
+
+            const handleTouchMove = (e) => {
+                if (isTouch) {
+                    const nowX = e.targetTouches[0].screenX;
+                    const nowY = e.targetTouches[0].screenY;
+
+                    moveX = lastX + clickY - nowY;
+                    moveY = lastY - clickX + nowX;
+
+                    console.log(`X 회전각 : ${moveX} Y 회전각 : ${moveY}`);
+
+                    gsap.to(cubeEl, { duration: 0, rotationX: moveX, rotationY: moveY });
+                }
+            };
+
+            const handleTouchEnd = () => {
+                if (isTouch) {
+                    lastX = moveX;
+                    lastY = moveY;
+                    isTouch = false;
+                }
+                window.removeEventListener("touchmove", handleTouchMove);
+                window.removeEventListener("touchend", handleTouchEnd);
+            };
+
+            cubeEl.addEventListener("touchstart", (e) => {
+                isTouch = true;
+                clickX = e.targetTouches[0].screenX;
+                clickY = e.targetTouches[0].screenY;
+                window.addEventListener("touchmove", handleTouchMove);
+                window.addEventListener("touchend", handleTouchEnd, { once: true });
+            });
+        });
+    </script>
+    <title>3D Cube</title>
+</head>
+
+<body>
+    <div class="cube">
+        <div class="face front" style="background-color: aqua;"></div>
+        <div class="face back" style="background-color: aqua;"></div>
+        <div class="face top" style="background-color: aqua;"></div>
+        <div class="face bottom" style="background-color: aqua;"></div>
+        <div class="face left" style="background-color: aqua;"></div>
+        <div class="face right" style="background-color: aqua;"></div>
+    </div>
+</body>
+
+</html>
